@@ -1,5 +1,11 @@
 import { useRef, useEffect, useState } from "react";
-import { NavLink, Link, Outlet, useLocation, useParams } from "react-router-dom";
+import {
+  NavLink,
+  Link,
+  Outlet,
+  useLocation,
+  useParams,
+} from "react-router-dom";
 import toast from "react-hot-toast";
 import { getMovieById } from "../../services/api";
 import Loader from "../../components/Loader/Loader";
@@ -44,42 +50,54 @@ const MovieDetailsPage = () => {
     <>
       <Link to={goBackLink.current}> &lt;&lt; Go Back</Link>
       {!isError && isLoading && <Loader />}
-      <div>
-        <img
-          src={
-            movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : defImg
-          }
-          width={300}
-          alt="movie poster"
-        />
-        <div>
-          <h1>
-            {movie.title}{" "}
-            {movie.release_date ? `(${movie.release_date.substring(0, 4)})` : ""}
-          </h1>
-          <p>User Score: {movie.vote_average ? Math.round(movie.vote_average * 10) : 0}%</p>
-          <h2>Overview</h2>
-          <p>{movie.overview}</p>
-          <h3>Genres</h3>
-          <ul>
-            {movie.genres && movie.genres.map((item) => (
-              <li key={item.id}>{item.name}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <div>
-        <p>Additinal information</p>
-        <ul>
-          <li>
-            <NavLink to="cast">Cast</NavLink>
-          </li>
-          <li>
-            <NavLink to="review">Review</NavLink>
-          </li>
-        </ul>
-      </div>
-      <Outlet />
+      {!isError && (
+        <>
+          <div>
+            <img
+              src={
+                movie.poster_path
+                  ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                  : defImg
+              }
+              width={300}
+              alt="movie poster"
+            />
+            <div>
+              <h1>
+                {movie.title}{" "}
+                {movie.release_date
+                  ? `(${movie.release_date.substring(0, 4)})`
+                  : ""}
+              </h1>
+              <p>
+                User Score:{" "}
+                {movie.vote_average ? Math.round(movie.vote_average * 10) : 0}%
+              </p>
+              <h2>Overview</h2>
+              <p>{movie.overview}</p>
+              <h3>Genres</h3>
+              <ul>
+                {movie.genres &&
+                  movie.genres.map((item) => (
+                    <li key={item.id}>{item.name}</li>
+                  ))}
+              </ul>
+            </div>
+          </div>
+          <div>
+            <p>Additinal information</p>
+            <ul>
+              <li>
+                <NavLink to="cast">Cast</NavLink>
+              </li>
+              <li>
+                <NavLink to="review">Review</NavLink>
+              </li>
+            </ul>
+          </div>
+          <Outlet />
+        </>
+      )}
     </>
   );
 };

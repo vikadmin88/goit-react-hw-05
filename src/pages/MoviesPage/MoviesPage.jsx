@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import SearchForm from '../../components/SearchForm/SearchForm';
-import { getMoviesByQuery } from '../../services/api.js';
+import { getMoviesByQuery } from '../../services/api';
 import Loader from '../../components/Loader/Loader';
-import MoviesList from '../../components/MoviesList/MoviesList.jsx';
+import MoviesList from '../../components/MoviesList/MoviesList';
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
