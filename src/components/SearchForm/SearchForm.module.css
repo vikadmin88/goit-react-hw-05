@@ -1,0 +1,32 @@
+.searchBar {
+    /* position: fixed;
+    top: 0;
+    left: 0; */
+    width: 100%;
+    background-color: rgb(53, 53, 194);
+    padding: 10px;
+    text-align: center;
+}
+
+.formField {
+    position: relative;
+    display: inline;
+}
+
+.inputField {
+    max-width: 400px;
+    width: 100%;
+    outline: none;
+    border: 1px solid rgb(53, 53, 194);
+    border-radius: 3px;
+    padding: 9px 4px 9px 30px;
+}
+
+.searchIcon {
+    border: none;
+    /* position: absolute; */
+    background-color: transparent;
+    /* top: 50%; */
+    /* transform: translateY(-50%); */
+    left: 9px;
+}
