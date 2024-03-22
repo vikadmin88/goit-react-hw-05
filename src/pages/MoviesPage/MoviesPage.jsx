@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import { getMoviesByQuery } from '../../services/api';
 import Loader from '../../components/Loader/Loader';
-import MoviesList from '../../components/MoviesList/MoviesList';
+import MovieList from '../../components/MovieList/MovieList';
 import css from "./MoviesPage.module.css";
 
 const MoviesPage = () => {
@@ -49,7 +49,7 @@ const MoviesPage = () => {
     <div className={css.pageContainer}>
       <SearchForm onSearchHandler={onSearchHandler} />
       {!isError && isLoading && <Loader />}
-      {movies && <MoviesList movies={movies} />}
+      {movies.length > 0 && <MovieList movies={movies} />}
     </div>
   );
 };

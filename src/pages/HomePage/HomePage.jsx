@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import toast from 'react-hot-toast';
 import { getMoviesByTrend } from '../../services/api.js';
 import Loader from '../../components/Loader/Loader';
-import MoviesList from '../../components/MoviesList/MoviesList.jsx';
+import MovieList from '../../components/MovieList/MovieList.jsx';
 import css from "./HomePage.module.css";
 
 const HomePage = () => {
@@ -39,7 +39,7 @@ const HomePage = () => {
         <div className={css.pageContainer}>
             <h1>Trending Today</h1>
             {!isError && isLoading && <Loader />}
-            {movies && <MoviesList movies={movies} />}
+            {movies.length > 0 && <MovieList movies={movies} />}
         </div>
     );
 };
