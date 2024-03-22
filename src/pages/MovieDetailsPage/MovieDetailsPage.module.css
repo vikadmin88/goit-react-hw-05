@@ -1,0 +1,73 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 4px;
+}
+
+.backBtn {
+    display: inline-flex;
+    gap: 6px;
+    color: inherit;
+    padding: 4px 8px;
+    border-radius: 3px;
+    border: 4px solid #d69273;
+    margin-bottom: 16px;
+    transition: color ease-in-out 0.3s;
+}
+
+.backBtn:hover {
+    color: #fff;
+}
+
+.detailsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.detailsMain {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+
+}
+
+.detailsText {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.genres {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.genreItem {
+    padding: 6px 8px;
+    border-radius: 6px;
+    background-color: #e0ad79;
+    color: #141313;
+}
+
+.addInfoList {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.addInfoLink {
+    color: inherit;
+    font-size: 16px;
+    transition: color ease-in-out 0.3s;
+}
+.addInfoLink:hover {
+    color: #fff;
+}
+.active {
+    font-weight: 700;
+    border-bottom: 1px dotted #fff;
+}

@@ -1,0 +1,22 @@
+.reviewList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding-top: 10px;
+}
+
+.reviewAuthor {
+    font-weight: 700;
+}
+
+.reviewUsername {
+    font-weight: normal;
+    border-bottom: 1px dotted #fff;
+}
+
+.reviewText {
+    max-height: 240px;
+    height: 100%;
+    overflow: auto;
+}

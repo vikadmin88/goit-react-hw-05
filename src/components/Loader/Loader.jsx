@@ -5,9 +5,9 @@ const Loader = () => {
     return (
         <ThreeDots
         visible={true}
-        height="60"
-        width="60"
-        color="#3535c2"
+        height="120"
+        width="120"
+        color="#fff"
         radius="9"
         ariaLabel="three-dots-loading"
         wrapperStyle={{}}

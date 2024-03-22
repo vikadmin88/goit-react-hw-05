@@ -5,6 +5,7 @@ import SearchForm from '../../components/SearchForm/SearchForm';
 import { getMoviesByQuery } from '../../services/api';
 import Loader from '../../components/Loader/Loader';
 import MoviesList from '../../components/MoviesList/MoviesList';
+import css from "./MoviesPage.module.css";
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
@@ -45,11 +46,11 @@ const MoviesPage = () => {
 
 
   return (
-    <>
+    <div className={css.pageContainer}>
       <SearchForm onSearchHandler={onSearchHandler} />
       {!isError && isLoading && <Loader />}
       {movies && <MoviesList movies={movies} />}
-    </>
+    </div>
   );
 };
 

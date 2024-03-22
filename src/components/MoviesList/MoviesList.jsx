@@ -1,14 +1,17 @@
 import { Link, useLocation } from 'react-router-dom';
+import css from './MoviesList.module.css'
 
-const MovieList = ({ movies }) => {
+const MoviesList = ({ movies }) => {
   const location = useLocation();
   
   return (
-    <ul>
+    <ul className={css.list}>
     {movies.map(movie => (
-      <li key={movie.id}>
-        <Link state={{ from: location }} to={`/movies/${movie.id}`}>
-          {movie.title}
+      <li key={movie.id} className={css.listItem}>
+        <Link state={{ from: location }} to={`/movies/${movie.id}`} className={css.itemLink}>
+          {movie.title}&nbsp;
+          {movie.release_date ? `(${movie.release_date.substring(0, 4)})` : ""}
+
         </Link>
       </li>
     ))}
@@ -16,4 +19,4 @@ const MovieList = ({ movies }) => {
   )
 }
 
-export default MovieList
+export default MoviesList

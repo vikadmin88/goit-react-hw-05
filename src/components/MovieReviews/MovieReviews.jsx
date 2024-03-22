@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom';
 import toast from "react-hot-toast";
 import { getMovieReviews } from "../../services/api";
 import Loader from "../Loader/Loader";
+import css from "./MovieReviews.module.css";
 
-const Review = () => {
+const MovieReviews = () => {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -41,13 +42,13 @@ const Review = () => {
     <>
       {!isError && isLoading && <Loader />}
       {reviews?.length !== 0 && (
-        <ul>
+        <ul className={css.reviewList}>
           {reviews?.map(item => (
-            <li key={item.id}>
-              <p>
-                Author: {item.author_details.username}
+            <li key={item.id} className={css.reviewListItem}>
+              <p className={css.reviewAuthor}>
+                Author: <span className={css.reviewUsername}>{item.author_details.username}</span>
               </p>
-              <p>{item.content}</p>
+              <p className={css.reviewText}>{item.content}</p>
             </li>
           ))}
         </ul>
@@ -59,6 +60,6 @@ const Review = () => {
   );
 };
 
-export default Review;
+export default MovieReviews;
 
 

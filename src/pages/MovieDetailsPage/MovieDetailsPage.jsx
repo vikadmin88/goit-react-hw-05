@@ -1,14 +1,20 @@
 import { useRef, useEffect, useState } from "react";
 import {
   NavLink,
-  Link,
   Outlet,
   useLocation,
   useParams,
 } from "react-router-dom";
 import toast from "react-hot-toast";
+import { IoArrowUndoSharp } from "react-icons/io5";
+import clsx from "clsx";
 import { getMovieById } from "../../services/api";
 import Loader from "../../components/Loader/Loader";
+import css from "./MovieDetailsPage.module.css";
+
+const buildLinkClass = ({ isActive }) => {
+  return clsx(css.addInfoLink, isActive && css.active);
+};
 
 const MovieDetailsPage = () => {
   const [movie, setMovie] = useState([]);
@@ -47,58 +53,56 @@ const MovieDetailsPage = () => {
   }, [movieId]);
 
   return (
-    <>
-      <Link to={goBackLink.current}> &lt;&lt; Go Back</Link>
+    <div className={css.pageContainer}>
+      <NavLink to={goBackLink.current} className={css.backBtn}> <IoArrowUndoSharp /> Go Back</NavLink>
       {!isError && isLoading && <Loader />}
       {!isError && (
-        <>
-          <div>
+        <div className={css.detailsContainer}>
+          <div className={css.detailsMain}>
             <img
               src={
                 movie.poster_path
                   ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
                   : defImg
               }
-              width={300}
+              width={340}
               alt="movie poster"
             />
-            <div>
+            <div className={css.detailsText}>
               <h1>
-                {movie.title}{" "}
-                {movie.release_date
-                  ? `(${movie.release_date.substring(0, 4)})`
-                  : ""}
+                {movie.title}&nbsp;
+                {movie.release_date ? `(${movie.release_date.substring(0, 4)})` : ""}
               </h1>
               <p>
-                User Score:{" "}
+                User Score:&nbsp;
                 {movie.vote_average ? Math.round(movie.vote_average * 10) : 0}%
               </p>
               <h2>Overview</h2>
               <p>{movie.overview}</p>
               <h3>Genres</h3>
-              <ul>
+              <ul className={css.genres}>
                 {movie.genres &&
                   movie.genres.map((item) => (
-                    <li key={item.id}>{item.name}</li>
+                    <li key={item.id} className={css.genreItem}>{item.name}</li>
                   ))}
               </ul>
             </div>
           </div>
           <div>
             <p>Additinal information</p>
-            <ul>
-              <li>
-                <NavLink to="cast">Cast</NavLink>
+            <ul className={css.addInfoList}>
+              <li className={css.addInfoItem}>
+                <NavLink to="cast" className={buildLinkClass}>Cast</NavLink>
               </li>
               <li>
-                <NavLink to="review">Review</NavLink>
+                <NavLink to="review" className={buildLinkClass}>Review</NavLink>
               </li>
             </ul>
           </div>
           <Outlet />
-        </>
+        </div>
       )}
-    </>
+    </div>
   );
 };
 

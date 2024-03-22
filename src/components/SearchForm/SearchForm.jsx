@@ -20,8 +20,8 @@ const SearchForm = ({ onSearchHandler }) => {
             >
             <Form>
                 <div className={css.formField}>
-                    <Field className={css.inputField} placeholder="Search images and photos" type="text" name="query" />
-                    <button className={css.searchIcon} type="submit">Search</button>
+                    <Field className={css.inputField} placeholder="Search movies" type="text" name="query" />
+                    <button className={css.submitBtn} type="submit">Search</button>
                 </div>
             </Form>
         </Formik>

@@ -3,6 +3,7 @@ import toast from 'react-hot-toast';
 import { getMoviesByTrend } from '../../services/api.js';
 import Loader from '../../components/Loader/Loader';
 import MoviesList from '../../components/MoviesList/MoviesList.jsx';
+import css from "./HomePage.module.css";
 
 const HomePage = () => {
     const [movies, setMovies] = useState([]);
@@ -35,10 +36,11 @@ const HomePage = () => {
     }, []);
 
     return (
-        <>
+        <div className={css.pageContainer}>
+            <h1>Trending Today</h1>
             {!isError && isLoading && <Loader />}
             {movies && <MoviesList movies={movies} />}
-        </>
+        </div>
     );
 };
 

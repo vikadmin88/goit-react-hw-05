@@ -1,0 +1,20 @@
+
+.listItem {
+    padding: 4px 0 4px;
+    border-bottom: 1px dotted #b48872;
+    transition: border-bottom-color ease-in-out 0.3s;
+}
+
+.listItem:hover {
+    border-bottom-color: #fff;
+}
+
+.itemLink {
+    color: inherit;
+    padding-left: 4px;
+    transition: color ease-in-out 0.3s;
+}
+
+.itemLink:hover {
+    color: #fff;
+} 

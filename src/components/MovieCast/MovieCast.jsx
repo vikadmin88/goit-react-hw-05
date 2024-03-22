@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import toast from "react-hot-toast";
 import { getMovieCast } from "../../services/api";
 import Loader from "../Loader/Loader";
+import css from "./MovieCast.module.css";
 
 const MovieCast = () => {
   const [cast, setCast] = useState([]);
@@ -41,13 +42,13 @@ const MovieCast = () => {
     <>
       {!isError && isLoading && <Loader />}
       {cast?.length !== 0 && (
-        <ul>
+        <ul className={css.castList}>
           {cast.map(actor => (
-            <li key={actor.id}>
+            <li key={actor.id} className={css.castListItem}>
               <img
                 src={actor.profile_path ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}` : defImg}
                 alt={actor.name}
-                width={120}
+                width={240}
               />
               <p>{actor.name}</p>
               <p>Character: {actor.character}</p>

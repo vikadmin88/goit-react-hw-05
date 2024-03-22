@@ -5,7 +5,6 @@ import App from './components/App.jsx'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // TODO uncomment it?
   // <React.StrictMode>
     <BrowserRouter>
       <App />

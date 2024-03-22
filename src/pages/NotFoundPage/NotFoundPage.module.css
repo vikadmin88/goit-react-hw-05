@@ -1,0 +1,13 @@
+.notFound {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.notFoundLink {
+    color: inherit;
+    transition: color ease-in-out 0.3s;
+}
+
+.notFoundLink:hover {
+    color: #fff;
+}

@@ -1,0 +1,20 @@
+.castList {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.castListItem {
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding-top: 12px;
+}
+
+.castListItem > P {
+    text-align: center;
+    word-wrap: break-word;
+}
