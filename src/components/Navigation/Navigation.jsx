@@ -20,6 +20,11 @@ const Navigation = () => {
             Movies
           </NavLink>
         </li>
+        <li>
+          <NavLink to="https://github.com/vikadmin88/goit-react-hw-05" className={buildLinkClass}>
+            (c)ViktorK
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

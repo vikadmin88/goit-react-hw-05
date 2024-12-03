@@ -1,6 +1,6 @@
 # React + Vite
 
-## Кінопошук
+## Кінопошук, API, themoviedb.org  
 
 ### Routes
 
